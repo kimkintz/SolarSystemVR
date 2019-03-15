@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{1BF596D2-6B5F-AE0C-3C03-1AE1422E4997}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Volumes/kmk130030/public_html/RE/index.html">
+    <Files>
+      <File FileName="Assets/Planet.cs" Line="27" Column="19" />
+      <File FileName="../../../Volumes/kmk130030/public_html/RE/index.html" Line="13" Column="41" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
