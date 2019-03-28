@@ -5,8 +5,10 @@ using UnityEngine;
 public class Planet : MonoBehaviour 
 {
 
-    public float speed;
+    public float orbitSpeed;
+    public float rotateSpeed;
     public float radius;
+    private bool motionOn = true;
 
     private Vector3 sun_position;
     private float angle;
@@ -19,11 +21,20 @@ public class Planet : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        //Orbit
-        angle += speed * Time.deltaTime;
-        var offset = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0) * radius;
-        transform.position = sun_position + offset;
+        if (motionOn)
+        {
+            //Orbit
+            angle += orbitSpeed * Time.deltaTime;
+            var offset = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0) * radius;
+            transform.position = sun_position + offset;
 
-        //Rotation
+            //Rotation
+            transform.Rotate(Vector3.right, rotateSpeed * Time.deltaTime);
+        }
+    }
+
+    public void ToggleMotion()
+    {
+        motionOn = !motionOn;
     }
 }
