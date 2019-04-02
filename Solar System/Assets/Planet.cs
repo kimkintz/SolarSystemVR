@@ -7,7 +7,7 @@ public class Planet : MonoBehaviour
 
     public float orbitSpeed;
     public float rotateSpeed;
-    public float radius;
+    float radius;
     private bool motionOn = true;
 
     private Vector3 sun_position;
@@ -15,6 +15,10 @@ public class Planet : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        GameObject sun = GameObject.FindGameObjectWithTag("Sun");
+        radius = Vector3.Distance(this.transform.position, sun.transform.position);
+        string r = radius.ToString();
+        Debug.Log(r);
         sun_position = GameObject.FindGameObjectWithTag("Sun").transform.position;
 	}
 	
@@ -25,11 +29,11 @@ public class Planet : MonoBehaviour
         {
             //Orbit
             angle += orbitSpeed * Time.deltaTime;
-            var offset = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0) * radius;
+            var offset = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * radius;
             transform.position = sun_position + offset;
 
             //Rotation
-            transform.Rotate(Vector3.right, rotateSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.down, rotateSpeed * Time.deltaTime);
         }
     }
 
