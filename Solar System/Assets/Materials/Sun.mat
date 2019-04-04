@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Sun
   m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
@@ -104,4 +104,4 @@ Material:
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.16176468, g: 0.16176468, b: 0.16176468, a: 1}
-    - _TintColor: {r: 0.6838235, g: 0.5485846, b: 0.48772708, a: 0.391}
+    - _TintColor: {r: 0.6838235, g: 0.5485845, b: 0.48772705, a: 1}

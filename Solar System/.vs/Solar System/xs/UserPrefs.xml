@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{1BF596D2-6B5F-AE0C-3C03-1AE1422E4997}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/5UDE/Interactions/VirtualHand.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AudioController.cs">
     <Files>
-      <File FileName="Assets/Planet.cs" Line="35" Column="42" />
-      <File FileName="Assets/SteamVR/InteractionSystem/Teleport/Scripts/TeleportPoint.cs" Line="8" Column="1" />
-      <File FileName="Assets/SteamVR/InteractionSystem/Core/Scripts/DebugUI.cs" Line="8" Column="1" />
-      <File FileName="Assets/5UDE/Systems/Vive/Scripts/SimViveTracker.cs" Line="44" Column="1" />
-      <File FileName="Assets/5UDE/Systems/Vive/Scripts/SimViveController.cs" Line="60" Column="1" />
-      <File FileName="Assets/SteamVR/Editor/SteamVR_Settings.cs" Line="156" Column="1" />
-      <File FileName="Assets/5UDE/Interactions/VirtualHand.cs" Line="86" Column="1" />
+      <File FileName="Assets/Planet.cs" Line="83" Column="24" />
+      <File FileName="Assets/OrbitController.cs" Line="25" Column="44" />
+      <File FileName="Assets/ZoomControl.cs" Line="108" Column="10" />
+      <File FileName="Assets/5UDE/Interactions/VirtualHand.cs" Line="202" Column="17" />
+      <File FileName="Assets/5UDE/Interactions/Steering.cs" Line="81" Column="74" />
+      <File FileName="Assets/AudioController.cs" Line="17" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -15,8 +14,7 @@
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/kimberlykintz/Documents/GitHub/SolarSystemVR/Solar System/Assets/Planet.cs" relfile="Assets/Planet.cs" line="18" column="1" />
-      <Breakpoint file="/Users/kimberlykintz/Documents/GitHub/SolarSystemVR/Solar System/Assets/Planet.cs" relfile="Assets/Planet.cs" line="27" column="1" />
+      <Breakpoint file="/Users/kimberlykintz/Documents/GitHub/SolarSystemVR/Solar System/Assets/Planet.cs" relfile="Assets/Planet.cs" line="19" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
