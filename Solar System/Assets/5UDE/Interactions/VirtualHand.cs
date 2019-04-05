@@ -211,17 +211,75 @@ public class VirtualHand : MonoBehaviour
                 //Set text on panel
             }
 
+            //UI control starts
+
+            GameObject PlanetUI = planet.transform.Find(planet.name + "Info").gameObject;
+
+            //Rotate panel to face user
+            if(previousPageNumber == 0)
+            {
+                GameObject hmd = GameObject.Find("Vive HMD");
+                float angle = getPanelRotation(hmd.transform.position.x, hmd.transform.position.z);
+                PlanetUI.transform.rotation = Quaternion.Euler(0, angle, 0);
+            }
+
+            PlanetUI.gameObject.SetActive(true); 
+            for (int i = 1; i < 4; i++)
+            {
+                if(i == pageNumber)
+                {
+                    PlanetUI.transform.GetChild(i - 1).gameObject.SetActive(true);
+                }
+                else
+                {
+                    PlanetUI.transform.GetChild(i - 1).gameObject.SetActive(false);
+                }
+            } 
+
+            //UI contro ends
 
             if (exitButton.GetPress())
             {
+            	PlanetUI.gameObject.SetActive(false);
+
                 GameObject zc = GameObject.Find("ZoomControl");
                 zc.GetComponent<ZoomControl>().ZoomOut();
-                pageNumber = 1;
+                pageNumber = 0;
                 state = VirtualHandState.Open;
                 ac.GetComponent<AudioController>().StopAudio();
             }
+
+
             prevTouchButtonPress = touchButtonPress;
 
         }
+    }
+
+    private float getPanelRotation(float x, float z)
+    {
+        float rotateAngle;
+        if(x>=0)
+        {
+            if(z>=0)
+            {
+                rotateAngle = -90.0f - Mathf.Atan(z / x); 
+            }
+            else
+            {
+                rotateAngle = -1 * Mathf.Atan(x / (z * -1));
+            }
+        }
+        else
+        {
+            if (z >= 0)
+            {
+                rotateAngle = 90.0f + Mathf.Atan(z / (x * -1));
+            }
+            else
+            {
+                rotateAngle = Mathf.Atan((x * -1) / (z * -1));
+            }
+        }
+        return rotateAngle;
     }
 }

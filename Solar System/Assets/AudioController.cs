@@ -39,6 +39,6 @@ public class AudioController : MonoBehaviour {
 
     public void StopAudio()
     {
-        AudioSource.GetComponent<Sound>().play = false;
+        AudioSource.GetComponent<Sound>().stop = true;
     }
 }

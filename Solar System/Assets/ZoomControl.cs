@@ -62,9 +62,6 @@ public class ZoomControl : MonoBehaviour
     // FixedUpdate is not called every graphical frame but rather every physics frame
     public void ZoomToPlanet(GameObject planetX)
     {
-        //buttonPress = scaleButton.GetPress();
-        //if (!buttonPress && prevButtonPress)
-        //{
             GameObject planet = GameObject.Find("Venus");
 
             GameObject SolarSystem = GameObject.Find("SolarSystem");
@@ -72,26 +69,14 @@ public class ZoomControl : MonoBehaviour
             foreach(GameObject p in planets)
             {
                 p.GetComponent<Planet>().DisableMotionControl();
-
-                //Debug.Log(p.transform.position);
-                //p.transform.position = p.transform.position + distanceDiff;
+           
             }
             SolarSystem.transform.localScale = SolarSystem.transform.localScale * 10;
 
             Vector3 distanceDiff = new Vector3(0,1.2f,0) - planetX.transform.position; 
             SolarSystem.transform.Translate(distanceDiff);
             sun.SetActive(false);
-
-            //sun.transform.position = sun.transform.position + distanceDiff;
-            //Vector3 scalingRateV3 = new Vector3(scalingRate, scalingRate, scalingRate);
-            //Vector3 finalScale = curScale + scaleJoystrick.GetAxis().y * scalingRateV3;
-            //if (finalScale.x <= 0 || finalScale.y <= 0 || finalScale.z <= 0)
-            //{
-            //    finalScale = new Vector3(0.01F, 0.01F, 0.01F);
-            //}
-            //GameObject.Find("SolarSystem").transform.localScale = finalScale;
-        //}
-        //prevButtonPress = buttonPress;
+       
     }
 
     public void ZoomOut()

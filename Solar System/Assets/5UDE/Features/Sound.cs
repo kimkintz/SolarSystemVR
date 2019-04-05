@@ -35,6 +35,7 @@ public class Sound : MonoBehaviour {
 	[Tooltip("Play the sound.")]
 	public bool play = true;
 
+    public bool stop = false;
 	[Tooltip("Loop the sound.")]
 	public bool loop = false;
 
@@ -100,5 +101,12 @@ public class Sound : MonoBehaviour {
 			play = false;
 			audioSource.PlayDelayed (delay);
 		}
-	}
+        if(stop)
+        {
+            stop = false;
+            audioClip = null;
+            audioSource.Stop();
+        }
+
+    }
 }

@@ -4642,7 +4642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shape: 6
-  useGravity: 1
+  useGravity: 0
 --- !u!54 &929100517
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5461,6 +5461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 0}
   play: 0
+  stop: 0
   loop: 0
   mute: 0
   delay: 0
@@ -10085,7 +10086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shape: 6
-  useGravity: 1
+  useGravity: 0
 --- !u!54 &1759964973
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11026,7 +11027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b24b0ed541a94655bab28e1a318582d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shape: 6
+  shape: 1
   useGravity: 0
 --- !u!54 &1913054133
 Rigidbody:
