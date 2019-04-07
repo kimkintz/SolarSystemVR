@@ -64,8 +64,12 @@ public class VirtualHand : MonoBehaviour
     private static int previousPageNumber;
     private bool touchButtonPress;
     private bool prevTouchButtonPress = false;
+    public float scaleRate;
+    private bool zoomedIn = false;
+    GameObject[] planets;
 
     GameObject planet;
+    public GameObject solarSystem;
     // Private interaction variables
     VirtualHandState state;
     FixedJoint grasp;
@@ -81,11 +85,27 @@ public class VirtualHand : MonoBehaviour
         hand.type = AffectType.Virtual;
 
         pageNumber = 0;
+        planets = GameObject.FindGameObjectsWithTag("Planet");
     }
 
     // FixedUpdate is not called every graphical frame but rather every physics frame
     void FixedUpdate()
     {
+        if(solarSystem.transform.localScale.x >=.0021f)
+        {
+            foreach (GameObject p in planets)
+            {
+                p.GetComponent<Planet>().DisableMotionControl();
+
+            }
+        }
+        else
+        {
+            foreach (GameObject p in planets)
+            {
+                p.GetComponent<Planet>().EnableMotionControl();
+            }
+        }
 
         // If state is open
         if (state == VirtualHandState.Open)
@@ -94,7 +114,6 @@ public class VirtualHand : MonoBehaviour
             // If the hand is touching something
             if (hand.triggerOngoing)
             {
-
                 // Change state to touching
                 state = VirtualHandState.Touching;
             }
@@ -102,8 +121,11 @@ public class VirtualHand : MonoBehaviour
             // Process current open state
             else
             {
-
-                // Nothing to do for open
+                if(exitButton.GetPress())
+                {
+                    solarSystem.transform.localScale = new Vector3(0.002f, 0.002f, .002f);
+                    solarSystem.transform.position = new Vector3(0, 1.2f, 0.5f);
+                }
             }
         }
 
@@ -122,23 +144,39 @@ public class VirtualHand : MonoBehaviour
             // If the hand is touching something and the button is pressed
             else if (hand.triggerOngoing && button.GetPress())
             {
-
-                // Fetch touched target
-                //Collider target = hand.ongoingTriggers[0];
-                // Create a fixed joint between the hand and the target
-               //grasp = target.gameObject.AddComponent<FixedJoint>();
-                // Set the connection
-                //grasp.connectedBody = hand.gameObject.GetComponent<Rigidbody>();
-
-                // Change state to holding
                 state = VirtualHandState.Holding;
             }
 
             // Process current touching state
             else
             {
-
-                // Nothing to do for touching
+                Collider t = hand.ongoingTriggers[0];
+                planet = t.gameObject;
+                Vector3 planetLocation = planet.transform.position;
+                Vector3 locationDiff;
+                if (touchPadButton.GetPress())
+                {
+                    Vector3 curScale = solarSystem.transform.localScale;
+                    if (joystick.GetAxis().y > 0 && curScale.x < .03f)
+                    {
+                        solarSystem.transform.localScale = new Vector3(curScale.x, curScale.y, curScale.z) + new Vector3(scaleRate, scaleRate, scaleRate);
+                        locationDiff = planetLocation - planet.transform.position;
+                        solarSystem.transform.Translate(locationDiff);
+                        Debug.Log(solarSystem.transform.localScale.x * 1.0f);
+                    }
+                    else if (joystick.GetAxis().y < 0 && curScale.x > .0021f)
+                    {
+                        solarSystem.transform.localScale = new Vector3(curScale.x, curScale.y, curScale.z) - new Vector3(scaleRate, scaleRate, scaleRate);
+                        locationDiff = planetLocation - planet.transform.position;
+                        solarSystem.transform.Translate(locationDiff);
+                        Debug.Log(solarSystem.transform.localScale.x * 1.0f);
+                    }
+                }
+                if (exitButton.GetPress())
+                {
+                    solarSystem.transform.localScale = new Vector3(0.002f, 0.002f, .002f);
+                    solarSystem.transform.position = new Vector3(0, 1.2f, 0.5f);
+                }
             }
         }
 

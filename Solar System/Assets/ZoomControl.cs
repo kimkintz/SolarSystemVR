@@ -71,7 +71,7 @@ public class ZoomControl : MonoBehaviour
                 p.GetComponent<Planet>().DisableMotionControl();
            
             }
-            SolarSystem.transform.localScale = SolarSystem.transform.localScale * 10;
+            SolarSystem.transform.localScale = new Vector3(.02f,.02f,.02f);
 
             Vector3 distanceDiff = new Vector3(0,1.2f,0) - planetX.transform.position; 
             SolarSystem.transform.Translate(distanceDiff);
@@ -83,7 +83,7 @@ public class ZoomControl : MonoBehaviour
     {
         GameObject SolarSystem = GameObject.Find("SolarSystem");
         sun.SetActive(true);
-        SolarSystem.transform.localScale = SolarSystem.transform.localScale * 0.1f;
+        SolarSystem.transform.localScale = new Vector3(.002f, .002f, .002f); ;
         Vector3 distanceDiff = new Vector3(0, 1.2f, 0) - sun.transform.position;
         SolarSystem.transform.Translate(distanceDiff);
 
